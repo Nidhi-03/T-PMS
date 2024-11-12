@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Registration</title>
+    <link rel="stylesheet" href="OK.css">
+</head>
+<body>
+    <div class="container">
+        <h1>COMPANY DATA</h1>
+        <form id="companyForm">
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName">
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" name="year">
+            </div>
+            <h3>Students List</h3>
+            <div class="form-group">
+                <label for="list">List</label>
+                <select name="list" id="list" onchange="showStudentList()">
+                  <option value=""></option>
+                  <option value="excelsheet">Excel Sheet</option>
+                  <option value="wordfile">Word File</option>
+                </select>
+            </div>
+
+            <!-- Hidden table for student list -->
+            <div id="studentList" style="display:none;">
+                <h3>Placed Students</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>FName</th>
+                            <th>RollNo</th>
+                            <th>Course</th>
+                            <th>Batch</th>
+                            <th>Sex</th>
+                            <th>DOB</th>
+                            <th>PCompany</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rohit</td>
+                            <td>Salik Ram</td>
+                            <td>1013314038</td>
+                            <td>MCA</td>
+                            <td>2008</td>
+                            <td>Male</td>
+                            <td>1990-01-28</td>
+                            <td>Infosys Springboard</td>
+                        </tr>
+                        <tr>
+                            <td>Arun</td>
+                            <td>HHHH</td>
+                            <td>1013313032</td>
+                            <td>B.TECH</td>
+                            <td>2009</td>
+                            <td>Male</td>
+                            <td>1990-09-08</td>
+                            <td>Infosys Springboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="saveForm()">Save</button>
+                <button type="reset">Reset</button>
+                <button type="button" onclick="goBack()">Back</button>
+                <button type="button" onclick="exitPage()">Exit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to display the student list when 'Excel Sheet' is selected
+        function showStudentList() {
+            var list = document.getElementById("list").value;
+            var studentList = document.getElementById("studentList");
+
+            if (list === "excelsheet") {
+                studentList.style.display = "block";
+            } else {
+                studentList.style.display = "none";
+            }
+        }
+
+        function saveForm() {
+            alert("Form saved!");
+        }
+
+        function goBack() {
+            alert("Going back!");
+        }
+
+        function exitPage() {
+            window.close();
+        }
+    </script>
+</body>
+</html>
